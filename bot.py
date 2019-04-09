@@ -5,7 +5,7 @@ import random
 import os
 import discord
 
-TOKEN = 'XXXXXXXXXXXXXXXXXXX'
+TOKEN = 'XXXXXXXXXXXXXXXXXXXXXXXXXXX'
 
 client = commands.Bot(command_prefix = '.')
 
