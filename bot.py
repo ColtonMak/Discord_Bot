@@ -36,7 +36,7 @@ async def on_message(message):
     if message.author.id == "563857467444953091":
         await client.send_message(channel, message.content)
 
-    if message.author.bot == True:
+    if message.author.bot:
         return
 
     #Ping Pong
