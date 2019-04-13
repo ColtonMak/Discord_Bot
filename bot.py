@@ -1,11 +1,10 @@
 from discord.ext.commands import Bot
 from discord.ext import commands
 from discord import Game
+from json import load
 import random
 import os
 import discord
-
-TOKEN = 'XXXXXXXXXXXXXXXXXXXXXXXXXXX'
 
 client = commands.Bot(command_prefix = '.')
 
@@ -198,4 +197,4 @@ async def vote(ctx, *args):
     await client.add_reaction(msg, "👍")
     await client.add_reaction(msg, "👎")
 
-client.run(TOKEN)
+client.run(load(open("./token.json", r))["token"])
