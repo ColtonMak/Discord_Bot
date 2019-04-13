@@ -63,6 +63,23 @@ async def on_message(message):
     if "waterloo" in message.content.lower():
         print(username + " has triggered waterloo at " + time)
         await client.send_message(channel, "Praise Mr. Goose!")
+    
+    #loo
+    if " loo " in message.content.lower():
+        print(username + " has triggered the loo at " + time)
+        embedA = discord.Embed()
+        embedB = discord.Embed()
+        embedA.set_image(url='https://www.etac.com/c4images/Etac-Hi-Loo-with-Brackets_548785.jpg')
+        embedB.set_image(url='https://uwaterloo.ca/future-students/sites/ca.future-students/files/uploads/images/engineering_5_2_.jpg')
+        # toilet emoji ":toilet:"
+        emojiA = '\U0001f6bd'
+        # grad cap emoji ":mortar_board:"
+        emojiB = '\U0001f393'
+        await client.send_message(channel, "Which loo r u talking about?")
+        await client.send_message(channel, embed=embedA)
+        await client.send_message(channel, embed=embedB)
+        await message.add_reaction(emojiA)
+        await message.add_reaction(emojiB)
 
     #AP
     if " ap " in message.content.lower():
