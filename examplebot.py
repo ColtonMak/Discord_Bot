@@ -1,26 +1,23 @@
 from discord.ext.commands import Bot
 
 BOT_PREFIX = "?"
-TOKEN = "XXXXXXXXXXXXXXXXXX"
+TOKEN = "XXXXXXXXXXXXX"
 
 client = Bot(command_prefix=BOT_PREFIX)
 
 @client.event
 async def on_ready():
-    print ("Logged in as " + client.user.name)
+    print(f"Logged in as {client.user.name}")
 
 @client.event
 async def on_message(message):
-    #Checks if message is a command
-    await client.process_commands(message)
-
     #Prevents bot from responding to other bots, including itself.
-    if message.author.bot == True:
+    if message.author.bot:
         return
 
     #Checks if sent message starts with "hello" and responds
     if message.content.lower().startswith("hello"):
-        msg = "Hello {0.author.mention}".format(message)
+        msg = f"Hello {message.author.mention}"
         await client.send_message(message.channel, msg)
 
 @client.command()
@@ -31,7 +28,7 @@ async def ping():
 @client.command()
 #Command for "?square x" where x is a number that responds with the square of x.
 async def square(number: int):
-    squared_value = number*number
-    await client.say(str(number) + " squared is " + str(squared_value))
+    squared_value = number ** 2
+    await client.say(f"{number} squared is {squared_value}")
 
 client.run(TOKEN)
