@@ -1,7 +1,7 @@
+from json import load
 from discord.ext.commands import Bot
 
 BOT_PREFIX = "?"
-TOKEN = "XXXXXXXXXXXXX"
 
 client = Bot(command_prefix=BOT_PREFIX)
 
@@ -31,4 +31,4 @@ async def square(number: int):
     squared_value = number ** 2
     await client.say(f"{number} squared is {squared_value}")
 
-client.run(TOKEN)
+client.run(load(open("./token.json", r))["token"])
